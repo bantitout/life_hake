@@ -4,6 +4,7 @@
 step1 : go to on your database.yml file and change database name
 step2: run rake/rails db:create
 step3: psql -U postgres -h localhost vendors_dev1 < /home/dev21/Downloads/xquic_local_7_jan.sql
+step4: rake/rails db:migrate
 
 # where postgres = user name
 # vendor_dev1 = database name
