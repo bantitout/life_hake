@@ -1,0 +1,21 @@
+#install specific version of ruby
+rvm install ruby-2.7.2
+
+#set ruby default version 
+rvm 2.7.2 --default
+
+#set ruby current version 
+rvm use ruby-2.7.2
+
+#install rails specific version
+gem install rails -v 6.1.1
+
+#git configure rails 
+https://support.atlassian.com/bitbucket-cloud/docs/configure-your-dvcs-username-for-commits/
+
+#create rvmrc file in rails with .rvmrc extention and into like below where iconweapons app name
+rvm use ruby-2.7.2@ikonweapons --create
+
+
+
+
