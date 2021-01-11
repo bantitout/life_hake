@@ -1,0 +1,5 @@
+#first three steps are make it wooow
+https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
+
+#then run
+rails db:create
