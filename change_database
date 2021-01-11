@@ -1,0 +1,4 @@
+#one command and change databas
+rails db:system:change --to=mysql
+#link 
+https://bigbinary.com/blog/rails-6-has-added-a-way-to-change-the-database-of-the-app#:~:text=Rails%20allows%20us%20to%20use,such%20as%20MySQL%20or%20PostgreSQL.
