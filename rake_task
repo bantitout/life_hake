@@ -1,0 +1,19 @@
+#rake task
+https://www.seancdavis.com/blog/how-to-write-a-custom-rake-task/
+# make file with rake extention in the given location where db is like namespace
+lib/tasks/db.rake
+
+#example
+
+namespace :once do
+  desc "Update Role ID based on role value of user"
+  task update_roles: :environment do
+    User.all.each do |user|
+      if user.role == "admin"
+        user.update_attribute(:role_id, Role.find_by(name: "admin").id)
+      else
+        user.update_attribute(:role_id, Role.find_by(name: "consumer").id)
+      end
+    end
+  end
+end
