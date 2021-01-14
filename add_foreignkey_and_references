@@ -1,0 +1,7 @@
+#add foreign key and reference by migration
+
+#we are geting category_id in products table 
+ add_reference :products, :category, index: true  
+ 
+ #add forein key of categories in products table
+ add_foreign_key :products, :categories
