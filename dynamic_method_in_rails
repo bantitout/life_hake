@@ -1,0 +1,20 @@
+################################################
+#define in deferent Model like Role
+
+%w(admin consumer).each do |r_name|
+  define_method "#{r_name}?" do
+    self.name == r_name 
+  end
+end
+################################################
+##############################
+#calling from differnt model like User.......we have delegate here
+
+def admin?
+  self.role_admin?
+end 
+
+def consumer?
+  self.role_consumer?
+end
+  ##################################
