@@ -1,0 +1,13 @@
+#user model
+before_validation :set_role!
+
+#user model
+protected
+def set_role!
+  self.role = Role.consumer if role.blank?
+end
+  
+#role model 
+def self.consumer
+  Role.find_by(name: "consumer")
+end
