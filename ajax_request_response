@@ -1,0 +1,30 @@
+var getOpenGraphIds = function(){
+  var arr = [];
+
+  $.each($(".see-more-link[data-is-open='true']"), function(index, value){
+    arr.push($(value).attr("data-parent"));
+  });
+
+  return arr;
+}
+
+$(document).on("click", '[data-toggle="revenueBusinessTab"]', function(e) {
+  var self = $(this),
+      loadurl = self.attr('data-url');
+
+  $('[data-toggle="revenueBusinessTab"]').attr("data-active-revenue-tab", "false");
+  self.attr("data-active-revenue-tab", "true");
+  $('#loader').show();
+  $.get(loadurl, { report_date: $(".report-date").val(), open_business: getOpenGraphIds() });
+});
+
+$(document).on("change", '.report-date', function(e) {
+  autoclose: true;
+  var self = $(this),
+      loadurl = $('.business-summary-section [data-toggle="revenueBusinessTab"].active-badge').attr('data-url');
+
+  $('#loader').show();      
+  $.get(loadurl, { report_date: self.val(), open_business: getOpenGraphIds() });
+});
+
+$(document).find("#daily_revenue_business_tab").click();
