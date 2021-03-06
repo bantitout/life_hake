@@ -64,3 +64,27 @@ $(document).on("click", ".verify_code_btn", function(e) {
     });
   });
   ........................................................................................................................
+  
+    var management_company = $("#autocomplete_businesses_name").val();
+    var management_company_for = $("#management_company_for").val();
+
+    if(management_company.length >= minlength)
+    {
+      $.ajax({
+        type: "POST",
+        url: "/businesses/add_existing_management_company",
+        dataType: "text",
+        headers: {
+          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          'management_company' : management_company,
+          'management_company_for' : management_company_for
+        },
+        success: function(response){
+          // $("#search_results").html(response);
+          location.href="<%= businesses_path %>";
+        }
+      });
+    }
+    ...............................................................................................................................
