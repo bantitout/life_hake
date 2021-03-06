@@ -1,0 +1,30 @@
+...........................................................
+$.ajax({
+  url: "/businesses",
+  type: "GET",
+  dataType: 'html',
+  success: function(data) {
+    global_change = false;
+    $('#all_businesses').html(data);
+  }
+});
+....................................................
+$.setupBusinessAnalytics = function(businessId) {
+  if(businessId != null || businessId != "" && typeof(businessId) != "undefined") {
+    $.ajax({
+      type: "GET",
+      data: { is_checked: true },
+      url: "/businesses/"+businessId+"/setup_business_analytics",
+      dataType: "script"
+    });
+  }
+}
+
+$(document).on("click", ".business-analytics-modal-single", function(e) {
+  if(this.checked) {
+    var businessId = $(this).attr("data-business");
+
+    $.setupBusinessAnalytics(businessId);
+  }
+});
+.................................................................................................
