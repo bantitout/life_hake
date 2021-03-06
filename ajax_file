@@ -28,3 +28,39 @@ $(document).on("click", ".business-analytics-modal-single", function(e) {
   }
 });
 .................................................................................................
+$(document).on("click", ".verify_code_btn", function(e) {
+    var code = $('.code_input').val()
+    $.ajax({
+      url: "/verify_phone_code",
+      type: "POST",
+      data: {
+        code: code
+      },
+      success: function(response){
+        show_flash_message(response["type"], response["message"])
+        $("#phoneVerificationModal").modal("hide");
+        update_preferences();
+        window.location.reload();
+      },
+      error: function(response){
+        show_flash_message(response.responseJSON["type"], response.responseJSON["message"])
+      }
+    });
+  });
+
+  $(document).on("click", "#resendCode", function(e) {
+    e.preventDefault();
+    $("#resendCode").removeAttr('href');
+    $.ajax({
+      url: "/resend_phone_code",
+      type: "POST",
+      success: function(response){
+        show_flash_message(response["type"], response["message"])
+        $("#resendCode").attr("href", "#");
+      },
+      error: function(response){
+        show_flash_message(response.responseJSON["type"], response.responseJSON["message"])
+      }
+    });
+  });
+  ........................................................................................................................
