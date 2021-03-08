@@ -1,0 +1,31 @@
+<li class="menu view-passcode">
+  <% if can_access_reports? && !validated_passcode? %>
+    <div>
+      <%= link_to "View Revenue Analytics", passcodes_path, remote: true %>
+    </div>
+  <% end %>
+</li>
+...............................................................................
+#click on View Revenue Analytics link it sent on passcodes_path of passcodes controller
+def index;end
+.........................................................................................
+#then it goes to passcodes view index.js.erb
+$(".view-passcode").html("<%= escape_javascript(render('index')) %>");
+..........................................................................
+#then it goes to _index.html.erb patrial
+<div class="passcode_div verify-passcode">
+  <%= form_tag(validate_passcodes_path, remote: true) do %>
+    <div class="passcode-title">Enter your <%= Users::PINSettings::PIN_LENGTH %> digit PIN</div>
+    <div class="passcode-input-section">
+      <%= password_field_tag :passcode, "", class: 'form-control passcode-field', maxlength: Users::PINSettings::PIN_LENGTH %>
+      <span class="passcode-message-section"></span>
+    </div>
+  <% end %>
+
+  <% if current_user.pin.present? %>
+    <%= link_to "Change your PIN", change_passcodes_path, remote: true, class: "setup-pin-link" %>
+  <% else %>
+    <%= link_to "Set up your PIN", setup_passcodes_path, remote: true, class: "setup-pin-link" %>
+  <% end %>
+</div>
+..........................................................................................................................
