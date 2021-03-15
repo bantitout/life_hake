@@ -1,0 +1,12 @@
+#1/0.0      #result Infinity
+
+#solution 
+(1/0.0).infinite? == 1 #it will give true if it hit infinity
+
+#important
+if self.number_of_rooms.present?
+  occ = ((room_rev.to_f/adr.to_f/self.number_of_rooms.to_f)*100).round(2) rescue 0.0
+  occ = 0.0 if occ.nan? || occ.infinite? == 1
+else
+  occ = 0.0
+end
