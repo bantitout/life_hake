@@ -1,0 +1,24 @@
+#step 1
+ Yarn add bootstrap jquery popper.js
+
+
+#step 2
+# navigate config/webpack/environment.js and add the following to your file:
+const webpack = require('webpack')
+  environment.plugins.prepend('Provide',
+    new webpack.ProvidePlugin({
+      $: 'jquery/src/jquery',
+      jQuery: 'jquery/src/jquery',
+      Popper: ['popper.js', 'default']
+    })
+  )
+
+#step 3
+# navigate app/assets/stylesheets/application.scss and add the below line:
+  *= require bootstrap
+
+
+#step 4
+#Next navigate to javascript/packs/application.js. and add below code.
+  import "bootstrap"
+  require('jquery')
