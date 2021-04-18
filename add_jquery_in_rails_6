@@ -18,8 +18,9 @@ environment.plugins.prepend('Provide',
   })
 )
 
-#then write Require jquery in application.js file
+#then write Require jquery in app/javascript/packs/application.js file
 require('jquery')
 
 
 and here we go! lets enjoy
+https://www.botreetechnologies.com/blog/introducing-jquery-in-rails-6-using-webpacker/
