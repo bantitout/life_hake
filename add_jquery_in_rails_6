@@ -1,0 +1,25 @@
+#add jquery in rails 6 using webpacker this works only for rails 6
+#rails 6 removed the use of sprockets
+
+
+#first go to your directory and run the command.
+
+yarn add jquery
+#this command will add latest jquery version to your project
+
+
+#then add below code in config/webpack/environment.js just above module.exports = envirments line
+
+const webpack = require('webpack')
+environment.plugins.prepend('Provide',
+  new webpack.ProvidePlugin({
+    $: 'jquery/src/jquery',
+    jQuery: 'jquery/src/jquery'
+  })
+)
+
+#then write Require jquery in application.js file
+require('jquery')
+
+
+and here we go! lets enjoy
