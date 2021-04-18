@@ -1,0 +1,26 @@
+#Run the following command from your application directory (if you don't have yarn, install it):
+
+yarn add bootstrap
+
+#if you want specific version then write like....by default it install latest version
+yarn add bootstrap@4.3.1
+
+#then go to app/javascript/packs/application.js and add the following line to the bottom:
+import "bootstrap"
+#That's it for javascript
+
+
+# then Go to app/assets/stylesheets/application.css and add the following line above the require_tree and require_self lines:
+#and change extention css to scss
+
+*= require bootstrap
+
+#So it looks like below:
+#example:-
+{
+  *= require bootstrap
+
+  *= require_tree .
+
+  *= require_self
+}
