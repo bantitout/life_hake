@@ -1,0 +1,9 @@
+
+#this way of seting env variable is valid for below rails 5.2
+step 1 
+add gem "figaro" to gemfile
+then add your env varible in config/application.yml
+like HONEYBADGER_API_KEY: 12345
+
+#go to link for hole precess
+https://www.honeybadger.io/blog/ruby-guide-environment-variables/
