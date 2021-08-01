@@ -20,5 +20,5 @@
 
 #step 4
 #Next navigate to javascript/packs/application.js. and add below code above import Rails from "@rails/ujs".
-  import "bootstrap"
+  require('bootstrap')
   require('jquery')
