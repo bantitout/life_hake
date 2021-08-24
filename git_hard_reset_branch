@@ -1,0 +1,4 @@
+$ git fetch
+$ git checkout branch_name
+$ git stash
+$ git reset --hard origin/branch_name
