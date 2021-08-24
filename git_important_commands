@@ -1,0 +1,17 @@
+# create new branch form remote branch
+  $ git fetch
+  $ git checkout -b branch_name --track origin/branch_name
+  
+# hard reset 
+  $ git fetch
+  $ git checkout branch_name
+  $ git stash
+  $ git reset --hard origin/branch_name
+  
+# ssh key gen in desktop
+{
+     $ ssh-keygen -t rsa
+  # if we are using multiple ssh-key then change path like
+     $ ssh-keygen -t rsa_vk
+}
+  
